@@ -7,9 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SedeComponent } from './sede/sede.component';
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, SedeComponent],
+  declarations: [LoginComponent, RegisterComponent, SedeComponent, HomeComponent],
   exports: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
