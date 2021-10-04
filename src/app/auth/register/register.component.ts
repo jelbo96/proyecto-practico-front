@@ -26,17 +26,27 @@ export class RegisterComponent {
     if(this.validarNombre() && this.validarEmail() 
     && this.validarPass() && this.validarConfigPass()){
       console.log("Nombre: "+ this.nombre);
-      console.log("Nombre: "+ this.nombre);
+      console.log("Email: "+ this.email);
     }
   }
 
-  validarNombre():boolean | undefined{
+
+  validarNombre():boolean {
     if(this.nombre.trim().length == 0){
-      this.mensaje_nombre="El campo Nombre no puede estra vacio";
+      this.mensaje_nombre="Nombre no puede estar vacio";
+      return false;
     }
-    this.mensaje_nombre="";
-    return true;
+    else if(this.nombre.length > 10){
+      this.mensaje_nombre="Nombre maximo 10 caracteres";
+      return false;
+    }
+    else{
+      console.log("Nombre: "+this.nombre);
+      this.mensaje_nombre="";
+      return true;
+    }
   }
+
 
   validarEmail():boolean | undefined{
     var pattern  = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -66,7 +76,7 @@ export class RegisterComponent {
 
   validarConfigPass():boolean | undefined{
     if(this.config_password.trim().length == 0){
-      this.mensaje_config_password="El campo Contraseña no puede estar vacio";
+      this.mensaje_config_password="El campo Confirmar Contraseña no puede estar vacio";
       return false;
     }
     else if(this.password != this.config_password){
@@ -74,8 +84,11 @@ export class RegisterComponent {
       this.mensaje_config_password="Las pass no coinciden";
       return false;
     }
-    this.mensaje_config_password="";
-    return true;
+    else{
+      this.mensaje_config_password="";
+      return true;
+    }
+    
   }
 
 }

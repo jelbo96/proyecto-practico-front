@@ -20,7 +20,7 @@
 
                     <!-- Nombres -->
                     <div class="form-floating">
-                        <input [(ngModel)]="nombre" name="nombre" type="text" id="name" class="form-control" placeholder="Nombre" required autofocus>
+                        <input [(ngModel)]="nombre" name="nombre" type="text" id="nombre" class="form-control" placeholder="Nombre" required autofocus>
                         <label for="floatingName">Nombre</label>
                         <p style="color: red">{{mensaje_nombre}}</p>
                     </div>
@@ -43,7 +43,7 @@
 
                     <!-- Confirmar contraseña -->
                     <div class="form-floating">
-                        <input [(ngModel)]="password" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Confirmar Contraseña" />
+                        <input [(ngModel)]="config_password" name="config_password" type="password" class="form-control" id="floatingPassword" placeholder="Confirmar Contraseña" />
                         <label for="floatingPassword">Confirmar Contraseña</label>
                         <p style="color: red">{{mensaje_config_password}}</p>
                     </div>
