@@ -1,4 +1,51 @@
-<p>Sede work!</p>
 <div class="container-fluid">
-    <img alt="">
+    <h2>Sedes</h2><br>
+    <hr>
+
+    <h3>Region: </h3>
+    <div class="card mb-4" *ngFor="let item of sedes">
+        <div class="row">
+            <div class="col-12 col-lg-3 mb-2 align-items-stretch">
+                <img class="w-100" src="{{item.img}}">
+            </div>
+            <div class="col-12 col-lg-4 border-border-black border-right no-border-xs">
+                <h3 class="font-weight-bold">{{item.nombre}}</h3>
+                <p><b>Dirección:</b>{{item.direccion}}</p>
+
+                <p><b>Teléfono:</b>
+                    <a href="#" class="btn btn-link">{{item.telefono}}</a></p>
+
+                <p><b>Email:</b>{{item.email}}</p>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!--
+
+    <div class="card mb-4">
+        <div class="row">
+            <div class="col-12 col-lg-3 mb-2 align-items-stretch">
+                <img class="w-100" src="#">
+            </div>
+            <div class="col-12 col-lg-4 border-border-black border-right no-border-xs">
+                <h3 class="font-weight-bold">Sede 1</h3>
+                <p><b>Dirección:</b>Direccion 1</p>
+
+                <p><b>Teléfono:</b>
+                    <a href="#" class="btn btn-link">+569111111</a></p>
+
+                <p><b>Email:</b>sede1@gmail.com</p>
+            </div>
+
+
+        </div>
+
+    </div>-->
+
+
+
 </div>

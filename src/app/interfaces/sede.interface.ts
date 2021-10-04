@@ -5,7 +5,7 @@ export interface Sede {
     direccion?: string;
     comuna?: string;
     region?: string;
-    telefono?: string;
+    telefono?: number;
     email?: string;
     img?: string;
 

@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  nombre="";
+  email:string="";
+  password:string="";
+  config_password="";
+
   constructor() { }
 
   ngOnInit(): void {

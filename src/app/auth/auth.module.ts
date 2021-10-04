@@ -8,6 +8,7 @@ import { SedeComponent } from './sede/sede.component';
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { CrearSedeComponent } from './crear-sede/crear-sede.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AppRoutingModule } from '../app-routing.module';
     RegisterComponent,
     SedeComponent,
     HomeComponent,
+    CrearSedeComponent,
   ],
   exports: [LoginComponent, RegisterComponent],
   imports: [

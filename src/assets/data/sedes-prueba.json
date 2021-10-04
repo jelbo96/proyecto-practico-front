@@ -5,7 +5,7 @@
             "direccion": "direccion1",
             "comuna": "comuna1",
             "region": "Valparaiso",
-            "telefono": "+569987552",
+            "telefono": 569987552,
             "email": "sede1@gmail.com",
             "img": "assets/img/"
         },
@@ -15,7 +15,7 @@
             "direccion": "direccion2",
             "comuna": "comuna2",
             "region": "Santiago",
-            "telefono": "+569242254",
+            "telefono": 569242254,
             "email": "sede2@gmail.com",
             "img": "assets/img/"
         }

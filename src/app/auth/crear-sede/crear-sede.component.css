@@ -1,0 +1,27 @@
+.login-container {
+    background-color: #f5f5f5;
+    padding: 2em;
+}
+
+.login-container-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login-form {
+    max-width: 550px;
+    width: 100%;
+}
+
+.logo-img {
+    max-width: 200px;
+    width: 100%;
+}
+
+.container-captcha {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px
+}

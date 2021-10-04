@@ -1,0 +1,75 @@
+<div class="login-container">
+    <div class="text-center container">
+        <div class="login-container-form">
+            <div class="login-form">
+                <form (ngSubmit)="addSede()" class="form">
+
+                    <h1 class="h3 mb-3 fw-normal">Crear sede</h1>
+
+                    <!--   nombre?: string; -->
+
+                    <div class="form-floating">
+                        <input [(ngModel)]="sede.nombre" name="nombre" type="text" id="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                        <label for="floatingName">Nombre</label>
+                        <p style="color: red">{{mensaje_nombre}}</p>
+                    </div>
+
+
+                    <!--  direccion?: string; -->
+                    <div class="form-floating">
+                        <input [(ngModel)]="sede.direccion" name="direccion" type="text" id="direccion" class="form-control" placeholder="direccion" required autofocus>
+                        <label for="floatingName">Direccion</label>
+                        <p style="color: red">{{mensaje_direccion}}</p>
+                    </div>
+
+
+                    <!-- comuna?: string; -->
+                    <div class="form-floating">
+                        <input [(ngModel)]="sede.comuna" name="comuna" type="text" id="comuna" class="form-control" placeholder="comuna" required autofocus>
+                        <label for="floatingName">Comuna:</label>
+                        <p style="color: red">{{mensaje_comuna}}</p>
+                    </div>
+
+                    <!-- region?: string; -->
+                    <div class="form-floating">
+                        <input [(ngModel)]="sede.region" name="region" type="text" id="region" class="form-control" placeholder="region" required autofocus>
+                        <label for="floatingName">Region:</label>
+                        <p style="color: red">{{mensaje_region}}</p>
+                    </div>
+
+
+                    <!-- telefono?: number -->
+                    <div class="form-floating">
+                        <input [(ngModel)]="sede.telefono" name="telefono" type="number" id="telefono" class="form-control" placeholder="telefono" required autofocus>
+                        <label for="floatingName">Telefono:</label>
+                        <p style="color: red">{{mensaje_telefono}}</p>
+                    </div>
+
+
+                    <!-- email?: string;  -->
+                    <div class="form-floating">
+                        <input [(ngModel)]="sede.email" name="email" type="text" id="email" class="form-control" placeholder="email" required autofocus>
+                        <label for="floatingName">Email:</label>
+                        <p style="color: red">{{mensaje_email}}</p>
+                    </div>
+
+                    <!-- img?: string; -->
+                    <div class="form-floating">
+                        <input [(ngModel)]="sede.img" name="img" type="text" id="img" class="form-control" placeholder="img" required autofocus>
+                        <label for="floatingName">Url Imagen</label>
+                    </div>
+
+
+
+
+                    <br>
+                    <button class="w-100 btn btn-lg btn-primary" name="submit">
+                        Crear Sede
+                    </button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>--
