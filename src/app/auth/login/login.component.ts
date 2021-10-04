@@ -30,12 +30,13 @@ export class LoginComponent {
     var pattern = new RegExp(
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
-    if (!pattern.test(this.email)) {
+    if(this.email.trim().length == 0){
+      this.mensaje_email = 'El campo Email no puede estar vacio';
+      return false;
+    }
+    else if(!pattern.test(this.email)) {
       this.mensaje_email = 'Caracteres del correo invalido';
       console.log('Correo invalido: ' + this.email);
-      return false;
-    } else if (this.email.trim().length == 0) {
-      this.mensaje_email = 'El campo Email no puede estar vacio';
       return false;
     }
     this.mensaje_email = '';
