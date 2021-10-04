@@ -28,14 +28,27 @@
                         <p style="color: red">{{mensaje_password}}</p>
                     </div>
                     <br />
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me" /> Recordarme
-                        </label>
+
+
+
+
+                    <label>
+                        <input type="checkbox" value="remember-me" /> Recordarme
+                    </label>
+
+
+                    <div class="container-captcha">
+                        <re-captcha (resolved)="validarCaptcha($event)" siteKey="6LdGFagcAAAAAIET2sLxX1JaoVst69cgEHawF9tx">
+                        </re-captcha>
                     </div>
+
+
+
+
                     <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">
                         Iniciar Sesión
                     </button>
+
                     <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
                 </form>
             </div>

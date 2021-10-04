@@ -6,22 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SedeComponent } from './sede/sede.component';
-
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 @NgModule({
-  declarations: [
-    LoginComponent, 
-    RegisterComponent, 
-    SedeComponent
-  ],
-  exports: [
-    LoginComponent, 
-    RegisterComponent
-  ],
+  declarations: [LoginComponent, RegisterComponent, SedeComponent],
+  exports: [LoginComponent, RegisterComponent],
   imports: [
-    CommonModule, 
+    CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
 })
 export class AuthModule {}
