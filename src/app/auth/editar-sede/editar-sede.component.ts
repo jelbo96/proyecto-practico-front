@@ -10,6 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./editar-sede.component.css'],
 })
 export class EditarSedeComponent implements OnInit {
+  mensaje_nombre = '';
+  mensaje_direccion = '';
+  mensaje_comuna = '';
+  mensaje_region = '';
+  mensaje_telefono = '';
+  mensaje_email = '';
+
   sede: Sede = {
     nombre: '',
     direccion: '',
@@ -31,8 +38,32 @@ export class EditarSedeComponent implements OnInit {
     this.id = this.activatedRoute.snapshot.params['id'];
 
     console.log('Obteniendo sede', this.id);
-    /* this.sede = this.sedeService.getSede(this.id); */
+
+    this.sede = {
+      nombre: 'Ignacio Jelvez',
+      direccion: 'Segunda Faja',
+      comuna: 'Villarrica',
+      region: 'Araucania',
+      telefono: 56999578987,
+      email: 'ijelvezh@gmail.com',
+      img: '',
+    };
 
     /* TODO Aqui deberiamos llamar al service para que nos traiga los datos de la sede */
+    /* this.sede = this.sedeService.getSede(this.id); */
+  }
+
+  saveSede() {
+    console.log('Guardando sede', this.sede);
+
+    this.sedeService.update(this.id, this.sede).subscribe(
+      (res) => {
+        console.log(res);
+        this.router.navigate(['/sedes']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }
