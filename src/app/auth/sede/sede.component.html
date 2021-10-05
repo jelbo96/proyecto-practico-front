@@ -1,50 +1,85 @@
-<div class="container-fluid">
-    <h2>Sedes</h2><br>
-    <hr>
+<div class="container container-fluid">
 
-    <h3>Region: </h3>
-    <div class="card mb-4" *ngFor="let item of sedes">
-        <div class="row">
-            <div class="col-12 col-lg-3 mb-2 align-items-stretch">
-                <img class="w-100" src="{{item.img}}">
+    <div class="container-header">
+        <h2>Sedes</h2>
+
+        <div>
+            <span> Vista: </span>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" (click)="setViewMode('list')">Lista</button>
+                <button type="button" class="btn btn-primary" (click)="setViewMode('table')">Tabla</button>
+
             </div>
-            <div class="col-12 col-lg-4 border-border-black border-right no-border-xs">
-                <h3 class="font-weight-bold">{{item.nombre}}</h3>
-                <p><b>Dirección:</b>{{item.direccion}}</p>
-
-                <p><b>Teléfono:</b>
-                    <a href="#" class="btn btn-link">{{item.telefono}}</a></p>
-
-                <p><b>Email:</b>{{item.email}}</p>
-            </div>
-
-
         </div>
 
     </div>
 
+    <hr>
 
-    <!--
+    <!-- Modo lista -->
 
-    <div class="card mb-4">
-        <div class="row">
-            <div class="col-12 col-lg-3 mb-2 align-items-stretch">
-                <img class="w-100" src="#">
+    <div *ngIf="mode=='list'">
+        <h3>Region: </h3>
+        <div class="card mb-4" *ngFor="let item of sedes">
+            <div class="row card-container">
+                <div class="col-12 col-lg-3 mb-2 align-items-stretch">
+                    <!--    <img class="w-100"> -->
+                    <!--  src="{{item.img}}" -->
+                </div>
+                <div class="col-12 col-lg-4 border-border-black border-right no-border-xs">
+                    <h3 class="font-weight-bold">{{item.nombre}}</h3>
+                    <p><b>Dirección:</b>{{item.direccion}}</p>
+
+                    <p><b>Teléfono:</b>
+                        <a href="#" class="btn btn-link">{{item.telefono}}</a>
+                    </p>
+
+                    <p><b>Email:</b>{{item.email}}</p>
+                    <button type="button" class="btn btn-danger">Eliminar</button> &nbsp;
+                    <button type="button" class="btn btn-primary">Editar</button>
+                </div>
+
+
             </div>
-            <div class="col-12 col-lg-4 border-border-black border-right no-border-xs">
-                <h3 class="font-weight-bold">Sede 1</h3>
-                <p><b>Dirección:</b>Direccion 1</p>
-
-                <p><b>Teléfono:</b>
-                    <a href="#" class="btn btn-link">+569111111</a></p>
-
-                <p><b>Email:</b>sede1@gmail.com</p>
-            </div>
-
 
         </div>
+    </div>
 
-    </div>-->
+    <!-- Modo tabla -->
+    <div *ngIf="mode=='table'">
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of sedes">
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.direccion}}</td>
+                    <td>{{item.telefono}}</td>
+                    <td>{{item.email}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-danger">Eliminar</button>
+                            <button type="button" class="btn btn-primary">Editar</button>
+
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
 
 
 

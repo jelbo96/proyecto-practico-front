@@ -1,0 +1,11 @@
+.container-header {
+    padding: 5em 1em 1em 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-container {
+    padding: 1em;
+}
