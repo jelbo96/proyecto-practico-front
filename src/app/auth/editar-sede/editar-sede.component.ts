@@ -145,11 +145,11 @@ export class EditarSedeComponent implements OnInit {
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 
-    if (!pattern.test(this.email)) {
+    if (!pattern.test(this.sede.email)) {
       this.mensaje_email = 'Caracteres del correo invalido';
       console.log('Correo invalido: ' + this.sede.email);
       return false;
-    } else if (this.email.trim().length == 0) {
+    } else if (this.sede.email.trim().length == 0) {
       this.mensaje_email = 'El campo Email no puede estar vacio';
       return false;
     } else {
