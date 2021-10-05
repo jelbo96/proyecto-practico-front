@@ -36,7 +36,7 @@
 
                     <p><b>Email:</b>{{item.email}}</p>
                     <button type="button" class="btn btn-danger">Eliminar</button> &nbsp;
-                    <button type="button" class="btn btn-primary">Editar</button>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/editar-sede', item.id]">Editar</button>
                 </div>
 
 
@@ -70,7 +70,7 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-danger">Eliminar</button>
-                            <button type="button" class="btn btn-primary">Editar</button>
+                            <button type="button" class="btn btn-primary" [routerLink]="['/editar-sede', item.id]">Editar</button>
 
                         </div>
                     </td>

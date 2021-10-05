@@ -9,6 +9,7 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { CrearSedeComponent } from './crear-sede/crear-sede.component';
+import { EditarSedeComponent } from './editar-sede/editar-sede.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CrearSedeComponent } from './crear-sede/crear-sede.component';
     SedeComponent,
     HomeComponent,
     CrearSedeComponent,
+    EditarSedeComponent,
   ],
   exports: [LoginComponent, RegisterComponent],
   imports: [

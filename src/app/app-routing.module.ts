@@ -6,6 +6,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './auth/home/home.component';
 import { SedeComponent } from './auth/sede/sede.component';
 import { CrearSedeComponent } from './auth/crear-sede/crear-sede.component';
+import { EditarSedeComponent } from './auth/editar-sede/editar-sede.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'sede', component: SedeComponent },
-  { path:'crear-sede', component:CrearSedeComponent }
+  { path: 'crear-sede', component: CrearSedeComponent },
+  { path: 'editar-sede/:id', component: EditarSedeComponent },
 ];
 
 @NgModule({
