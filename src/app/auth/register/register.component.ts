@@ -27,11 +27,13 @@ export class RegisterComponent {
     && this.validarPass() && this.validarConfigPass()){
       console.log("Nombre: "+ this.nombre);
       console.log("Email: "+ this.email);
+      console.log("Pass: "+ this.password);
+      console.log("Confirmar Pass: "+ this.config_password);
     }
   }
 
 
-  validarNombre():boolean {
+  validarNombre():boolean | undefined {
     if(this.nombre.trim().length == 0){
       this.mensaje_nombre="Nombre no puede estar vacio";
       return false;
