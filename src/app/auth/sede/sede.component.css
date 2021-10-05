@@ -9,3 +9,9 @@
 .card-container {
     padding: 1em;
 }
+
+.container-title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
