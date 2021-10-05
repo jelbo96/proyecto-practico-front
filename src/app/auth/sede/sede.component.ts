@@ -22,7 +22,7 @@ export class SedeComponent implements OnInit {
   getSedes(){
     this.sedesService.getAll().subscribe(
      (data:any) => {
-        this.sedes = data.sedes;
+        this.sedes = data;
       },
       error => {
         console.log(error)

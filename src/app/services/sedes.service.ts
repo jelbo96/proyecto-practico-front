@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Sede } from '../interfaces/sede.interface';
 
-const baseUrl = 'http://localhost:8080/api'
+const baseUrl = 'http://localhost:8080/'
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class SedesService {
   }
 
   getAll() {
-    return this.http.get('assets/data/sedes-prueba.json');
+    return this.http.get(`${baseUrl}getSedes`);
   }
 
   get(id: number){
@@ -28,7 +28,8 @@ export class SedesService {
   }
 
   create(data : any){
-    return this.http.post(baseUrl, data); 
+    console.log(data)
+    return this.http.post(`${baseUrl}agregarSede`, data); 
   }
 
   update(id: number, data: any){
