@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email: string = '';
+  correo: string = '';
   password: string = '';
 
-  mensaje_email = '';
+  mensaje_correo = '';
   mensaje_password = '';
   string_captcha = '';
   constructor() {}
@@ -18,28 +18,27 @@ export class LoginComponent {
 
   insertarLogin(): void {
     if (
-      this.validarEmail() &&
+      this.validarCorreo() &&
       this.validarPass() &&
       this.string_captcha.length > 0
     ) {
-      console.log('Email: ' + this.email, 'Pass: ' + this.password);
+      console.log('Correo: ' + this.correo, 'Pass: ' + this.password);
     }
   }
 
-  validarEmail(): boolean | undefined {
+  validarCorreo(): boolean | undefined {
     var pattern = new RegExp(
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
-    if(this.email.trim().length == 0){
-      this.mensaje_email = 'El campo Email no puede estar vacio';
+    if (this.correo.trim().length == 0) {
+      this.mensaje_correo = 'El campo Correo no puede estar vacio';
+      return false;
+    } else if (!pattern.test(this.correo)) {
+      this.mensaje_correo = 'Caracteres del correo invalido';
+      console.log('Correo invalido: ' + this.correo);
       return false;
     }
-    else if(!pattern.test(this.email)) {
-      this.mensaje_email = 'Caracteres del correo invalido';
-      console.log('Correo invalido: ' + this.email);
-      return false;
-    }
-    this.mensaje_email = '';
+    this.mensaje_correo = '';
     return true;
   }
 

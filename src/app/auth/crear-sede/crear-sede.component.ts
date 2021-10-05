@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { SedesService } from '../../services/sedes.service';
 import { Sede } from 'src/app/interfaces/sede.interface';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-crear-sede',
   templateUrl: './crear-sede.component.html',
@@ -13,7 +15,7 @@ export class CrearSedeComponent {
   comuna: string = '';
   region: string = '';
   telefono: number = 56;
-  email: string = '';
+  correo: string = '';
   img: string = '';
   sede: Sede = {
     nombre: '',
@@ -21,7 +23,7 @@ export class CrearSedeComponent {
     comuna: '',
     region: '',
     telefono: 56,
-    email: '',
+    correo: '',
     img: '',
   };
 
@@ -30,9 +32,9 @@ export class CrearSedeComponent {
   mensaje_comuna = '';
   mensaje_region = '';
   mensaje_telefono = '';
-  mensaje_email = '';
+  mensaje_correo = '';
 
-  constructor(public sedesService: SedesService) {}
+  constructor(public sedesService: SedesService, public router: Router) {}
 
   /* Funcion para guardar datos */
 
@@ -46,6 +48,7 @@ export class CrearSedeComponent {
     this.sedesService.create(this.sede).subscribe(
       (response) => {
         console.log(response);
+        this.router.navigate(['/sede']);
       },
       (error) => console.log(error)
     );
@@ -60,14 +63,14 @@ export class CrearSedeComponent {
       this.validarComuna() &&
       this.validarRegion() &&
       this.validarTelefono() &&
-      this.validarEmail()
+      this.validarCorreo()
     ) {
       console.log('Nombre: ' + this.sede.nombre);
       console.log('Direccion: ' + this.sede.direccion);
       console.log('Comuna: ' + this.sede.comuna);
       console.log('Region: ' + this.sede.region);
       console.log('Telefono: ' + this.sede.telefono);
-      console.log('Email: ' + this.email);
+      console.log('Correo: ' + this.correo);
       this.addSede();
     }
   }
@@ -118,20 +121,20 @@ export class CrearSedeComponent {
     return true;
   }
 
-  validarEmail(): boolean | undefined {
+  validarCorreo(): boolean | undefined {
     var pattern = new RegExp(
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 
-    if (!pattern.test(this.email)) {
-      this.mensaje_email = 'Caracteres del correo invalido';
-      console.log('Correo invalido: ' + this.sede.email);
+    if (!pattern.test(this.sede.correo)) {
+      this.mensaje_correo = 'Caracteres del correo invalido';
+      console.log('Correo invalido: ' + this.sede.correo);
       return false;
-    } else if (this.email.trim().length == 0) {
-      this.mensaje_email = 'El campo Email no puede estar vacio';
+    } else if (this.sede.correo.trim().length == 0) {
+      this.mensaje_correo = 'El campo Correo no puede estar vacio';
       return false;
     } else {
-      this.mensaje_email = '';
+      this.mensaje_correo = '';
       return true;
     }
   }

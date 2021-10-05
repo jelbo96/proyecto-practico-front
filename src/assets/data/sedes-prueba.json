@@ -6,7 +6,7 @@
             "comuna": "comuna1",
             "region": "Valparaiso",
             "telefono": 569987552,
-            "email": "sede1@gmail.com",
+            "correo": "sede1@gmail.com",
             "img": "assets/img/"
         },
         {
@@ -16,7 +16,7 @@
             "comuna": "comuna2",
             "region": "Santiago",
             "telefono": 569242254,
-            "email": "sede2@gmail.com",
+            "correo": "sede2@gmail.com",
             "img": "assets/img/"
         }
     ]

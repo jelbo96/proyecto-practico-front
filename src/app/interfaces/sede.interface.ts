@@ -5,6 +5,6 @@ export interface Sede {
   comuna: string;
   region: string;
   telefono: number;
-  email: string;
+  correo: string;
   img: string;
 }

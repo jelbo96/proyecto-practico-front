@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 
-
 import { HttpClient } from '@angular/common/http';
 import { Sede } from '../interfaces/sede.interface';
 
-const baseUrl = 'http://localhost:8080/api'
+const baseUrl = 'http://localhost:8080';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SedesService {
-
   //Declaracion de variables
   sedes: Sede[] = [];
 
@@ -20,27 +18,24 @@ export class SedesService {
   }
 
   getAll() {
-    return this.http.get('assets/data/sedes-prueba.json');
+    return this.http.get(`${baseUrl}/getSedes`);
   }
 
-  get(id: number){
-    return this.http.get(`${baseUrl}/${id}`);
+  get(id: number) {
+    return this.http.get(`${baseUrl}/sede/${id}`);
   }
 
-  create(data : any){
-    return this.http.post(baseUrl, data); 
+  create(data: any) {
+    return this.http.post(`${baseUrl}/agregarSede`, data);
   }
 
-  update(id: number, data: any){
-    return this.http.put(`${baseUrl}/${id}`,data);
-  } 
-
-  delete(id: number){
-    return this.http.delete(`${baseUrl}/${id}`);
+  update(id: number, data: any) {
+    console.log('ACTUALIZANDO....', data, id);
+    data.id = id;
+    return this.http.put(`${baseUrl}/actualizar`, data);
   }
 
-
+  delete(id: number) {
+    return this.http.get(`${baseUrl}/eliminar/${id}`);
+  }
 }
-
-
-

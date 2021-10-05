@@ -15,7 +15,7 @@ export class EditarSedeComponent implements OnInit {
   comuna: string = '';
   region: string = '';
   telefono: number = 56;
-  email: string = '';
+  correo: string = '';
   img: string = '';
 
   mensaje_nombre = '';
@@ -23,17 +23,17 @@ export class EditarSedeComponent implements OnInit {
   mensaje_comuna = '';
   mensaje_region = '';
   mensaje_telefono = '';
-  mensaje_email = '';
+  mensaje_correo = '';
 
-  sede: Sede = {
+  sede: any; /* Sede = {
     nombre: '',
     direccion: '',
     comuna: '',
     region: '',
     telefono: 56,
-    email: '',
+    correo: '',
     img: '',
-  };
+  }; */
   id: number = 0;
 
   constructor(
@@ -47,15 +47,25 @@ export class EditarSedeComponent implements OnInit {
 
     console.log('Obteniendo sede', this.id);
 
-    this.sede = {
+    /* this.sede = {
       nombre: 'Ignacio Jelvez',
       direccion: 'Segunda Faja',
       comuna: 'Villarrica',
       region: 'Araucania',
       telefono: 56999578987,
-      email: 'ijelvezh@gmail.com',
+      correo: 'ijelvezh@gmail.com',
       img: '',
-    };
+    }; */
+
+    this.sede = this.sedeService.get(this.id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.sede = data;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
 
     /* TODO Aqui deberiamos llamar al service para que nos traiga los datos de la sede */
     /* this.sede = this.sedeService.getSede(this.id); */
@@ -67,7 +77,7 @@ export class EditarSedeComponent implements OnInit {
     this.sedeService.update(this.id, this.sede).subscribe(
       (res) => {
         console.log(res);
-        this.router.navigate(['/sedes']);
+        this.router.navigate(['/sede']);
       },
       (err) => {
         console.log(err);
@@ -82,14 +92,14 @@ export class EditarSedeComponent implements OnInit {
       this.validarComuna() &&
       this.validarRegion() &&
       this.validarTelefono() &&
-      this.validarEmail()
+      this.validarCorreo()
     ) {
       console.log('Nombre: ' + this.sede.nombre);
       console.log('Direccion: ' + this.sede.direccion);
       console.log('Comuna: ' + this.sede.comuna);
       console.log('Region: ' + this.sede.region);
       console.log('Telefono: ' + this.sede.telefono);
-      console.log('Email: ' + this.email);
+      console.log('Correo: ' + this.correo);
       this.saveSede();
     }
   }
@@ -140,20 +150,20 @@ export class EditarSedeComponent implements OnInit {
     return true;
   }
 
-  validarEmail(): boolean | undefined {
+  validarCorreo(): boolean | undefined {
     var pattern = new RegExp(
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 
-    if (!pattern.test(this.sede.email)) {
-      this.mensaje_email = 'Caracteres del correo invalido';
-      console.log('Correo invalido: ' + this.sede.email);
+    if (!pattern.test(this.sede.correo)) {
+      this.mensaje_correo = 'Caracteres del correo invalido';
+      console.log('Correo invalido: ' + this.sede.correo);
       return false;
-    } else if (this.sede.email.trim().length == 0) {
-      this.mensaje_email = 'El campo Email no puede estar vacio';
+    } else if (this.sede.correo.trim().length == 0) {
+      this.mensaje_correo = 'El campo Correo no puede estar vacio';
       return false;
     } else {
-      this.mensaje_email = '';
+      this.mensaje_correo = '';
       return true;
     }
   }
