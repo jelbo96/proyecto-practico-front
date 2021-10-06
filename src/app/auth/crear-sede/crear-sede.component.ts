@@ -16,6 +16,7 @@ export class CrearSedeComponent {
   region: string = '';
   telefono: number = 56;
   correo: string = '';
+  img: string = '';
 
   sede: Sede = {
     nombre: '',
@@ -24,6 +25,7 @@ export class CrearSedeComponent {
     region: '',
     telefono: 56,
     correo: '',
+    img: '',
   };
 
   mensaje_nombre = '';
@@ -32,6 +34,7 @@ export class CrearSedeComponent {
   mensaje_region = '';
   mensaje_telefono = '';
   mensaje_correo = '';
+  mensaje_img = '';
 
   constructor(public sedesService: SedesService, public router: Router) {}
 
@@ -62,7 +65,8 @@ export class CrearSedeComponent {
       this.validarComuna() &&
       this.validarRegion() &&
       this.validarTelefono() &&
-      this.validarCorreo()
+      this.validarCorreo() &&
+      this.validarImg()
     ) {
       console.log('Nombre: ' + this.sede.nombre);
       console.log('Direccion: ' + this.sede.direccion);
@@ -108,6 +112,15 @@ export class CrearSedeComponent {
       return false;
     }
     this.mensaje_region = '';
+    return true;
+  }
+
+  validarImg(): boolean | undefined {
+    if (this.sede.img?.trim().length == 0) {
+      this.mensaje_img = 'El campo Url Imagen no puede estar vacio';
+      return false;
+    }
+    this.mensaje_img = '';
     return true;
   }
 
