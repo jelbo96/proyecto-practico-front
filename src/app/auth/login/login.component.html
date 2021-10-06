@@ -18,21 +18,14 @@
                 </div>
                 <br />
 
-
-
-
-                <label>
-                    <input type="checkbox" value="remember-me" /> Recordarme
-                </label>
-
-
                 <div class="container-captcha">
                     <re-captcha (resolved)="validarCaptcha($event)" siteKey="6LdGFagcAAAAAIET2sLxX1JaoVst69cgEHawF9tx">
                     </re-captcha>
+
                 </div>
 
 
-
+                <p style="color: red">{{string_credenciales}}</p>
 
                 <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">
                     Iniciar Sesión

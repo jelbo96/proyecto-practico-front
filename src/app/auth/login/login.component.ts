@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,8 @@ export class LoginComponent {
   mensaje_correo = '';
   mensaje_password = '';
   string_captcha = '';
-  constructor() {}
+  string_credenciales = '';
+  constructor(public loginService: LoginService, public router: Router) {}
 
   ngOnInit(): void {}
 
@@ -23,6 +26,22 @@ export class LoginComponent {
       this.string_captcha.length > 0
     ) {
       console.log('Correo: ' + this.correo, 'Pass: ' + this.password);
+
+      /* Loguearse - llamaR AL SERVICE Y PASARLE CORREO Y PASS */
+      this.loginService.login(this.correo, this.password).subscribe(
+        (data: any) => {
+          if (data) {
+            localStorage.setItem('token', Object.keys(data)[0]);
+            this.router.navigate(['/home']);
+          } else {
+            this.string_credenciales = 'Credenciales incorrectas';
+          }
+        },
+        (error) => {
+          this.string_credenciales = 'Credenciales incorrectas';
+          console.log(error);
+        }
+      );
     }
   }
 
