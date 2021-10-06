@@ -16,7 +16,7 @@ export class CrearSedeComponent {
   region: string = '';
   telefono: number = 56;
   correo: string = '';
-  img: string = '';
+
   sede: Sede = {
     nombre: '',
     direccion: '',
@@ -24,7 +24,6 @@ export class CrearSedeComponent {
     region: '',
     telefono: 56,
     correo: '',
-    img: '',
   };
 
   mensaje_nombre = '';

@@ -16,7 +16,6 @@ export class EditarSedeComponent implements OnInit {
   region: string = '';
   telefono: number = 56;
   correo: string = '';
-  img: string = '';
 
   mensaje_nombre = '';
   mensaje_direccion = '';

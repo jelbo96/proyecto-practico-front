@@ -6,5 +6,4 @@ export interface Sede {
   region: string;
   telefono: number;
   correo: string;
-  img: string;
 }
