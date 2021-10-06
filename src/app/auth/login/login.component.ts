@@ -31,7 +31,11 @@ export class LoginComponent {
       this.loginService.login(this.correo, this.password).subscribe(
         (data: any) => {
           if (data) {
-            localStorage.setItem('token', Object.keys(data)[0]);
+            localStorage.setItem('token', data.token);
+            localStorage.setItem(
+              'nombre',
+              data.usuario.nombre + ' ' + data.usuario.apellido
+            );
             this.router.navigate(['/home']);
           } else {
             this.string_credenciales = 'Credenciales incorrectas';
